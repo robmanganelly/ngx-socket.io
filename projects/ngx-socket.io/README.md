@@ -1,63 +1,71 @@
-# NgxSocketIo
+# ngx-socket.io
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+`ngx-socket.io` is an Angular library that wraps [socket.io](https://socket.io) for easy integration into Angular applications. It provides a simple and efficient way to handle real-time communication between the client and server using WebSockets.
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Easy integration with Socket.IO.
+- Real-time event handling.
+- TypeScript support for better development experience.
+- Lightweight and efficient.
 
-```bash
-ng generate component component-name
-```
+## Installation
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the library, run:
+Install the library using npm:
 
 ```bash
-ng build ngx-socket.io
+npm install ngx-socket.io
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+## Usage
 
-### Publishing the Library
+Import the module and configure it in your Angular application:
 
-Once the project is built, you can publish your library by following these steps:
+<!-- 
+TODO
+```typescript
+import { NgModule } from '@angular/core';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket.io';
 
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/ngx-socket.io
-   ```
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+@NgModule({
+  imports: [SocketIoModule.forRoot(config)],
+  declarations: [],
+  bootstrap: []
+})
+export class AppModule {}
 ```
 
-## Running end-to-end tests
+Use the `Socket` service in your components:
 
-For end-to-end (e2e) testing, run:
+```typescript
+import { Component } from '@angular/core';
+import { Socket } from 'ngx-socket.io';
 
-```bash
-ng e2e
-```
+@Component({
+  selector: 'app-root',
+  template: `<h1>Real-time App</h1>`
+})
+export class AppComponent {
+  constructor(private socket: Socket) {
+    this.socket.on('message', (data: any) => {
+      console.log('Message received:', data);
+    });
+  }
+}
+``` -->
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Contributing
 
-## Additional Resources
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+## Changelog
+
+| Date       | Changes                |
+|------------|------------------------|
+| YYYY-MM-DD | Initial release.       |
